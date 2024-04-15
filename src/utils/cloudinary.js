@@ -20,12 +20,13 @@ export const uploadOnCloudinary = async (localFilePath) => {
       },
       (err, res) => {
         if (err) console.error("CLOUDINARY UPLOAD FAILED: ", err);
-        console.log("File uploaded successfully ", res);
+        if (res) console.log("File uploaded successfully ", res);
       }
     );
     return upload;
   } catch (error) {
     // Remove/unlink from local path in case of failure
     fs.unlinkSync(localFilePath);
+    return null;
   }
 };
