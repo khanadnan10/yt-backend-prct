@@ -13,6 +13,7 @@ app.use(
 );
 app.use(express.json({ limit: "16kb" })); // limit the amount of data size
 app.use(express.urlencoded({ extended: true, limit: "16kb" })); // url encode (e.g google.com/search=jasdjk(+/%)asda)
+app.use(express.static("public"));
 app.use(cookieParser());
 
 export default app;
